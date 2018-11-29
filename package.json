@@ -13,6 +13,6 @@
     "eslint": "^5.9.0"
   },
   "bin": {
-    "cradux": "./index.js"
+    "add-ducks": "./index.js"
   }
 }
