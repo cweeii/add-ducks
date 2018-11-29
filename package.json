@@ -10,7 +10,8 @@
     "ncp": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.9.0"
+    "eslint": "^5.9.0",
+    "prettier": "^1.15.2"
   },
   "bin": {
     "add-ducks": "./index.js"
