@@ -8,7 +8,7 @@
   "dependencies": {
     "jscodeshift": "^0.5.1",
     "ncp": "^2.0.0",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.3"
   },
   "bin": {
     "add-ducks": "./index.js"
