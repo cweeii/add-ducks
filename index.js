@@ -30,11 +30,16 @@ const modCode = () => {
   const jscodeshift = join(__dirname, 'node_modules/.bin/jscodeshift');
   const codemodsLocation = join(__dirname, 'codemods');
 
-  const appLocation = join(cwd, 'src/App.js');
-  const stdout = execSync(
-    `${jscodeshift} ${appLocation} -t ${codemodsLocation}/App.js`,
-  );
-  console.log(stdout.toString());
+  const mod = fileName => {
+    const location = join(cwd, `src/${fileName}.js`);
+    const stdout = execSync(
+      `${jscodeshift} ${location} -t ${codemodsLocation}/${fileName}.js`,
+    );
+    console.log(stdout.toString());
+  };
+
+  mod('App');
+  // mod('index');
 };
 
 const prettify = () => {

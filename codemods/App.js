@@ -8,7 +8,15 @@ module.exports = function showErrorNotificationTransformer(fileInfo, api) {
     [j.importSpecifier(j.identifier('Counter'))],
     j.literal('./components/counter'),
   );
-  reactImport.insertAfter(counterImport);
+
+  const counterImportPaths = ast.find(j.ImportDeclaration, {
+    source: {
+      value: './components/counter',
+    },
+  });
+  if (counterImportPaths.length === 0) {
+    reactImport.insertAfter(counterImport);
+  }
 
   const anchor = ast.find(j.JSXElement, {
     openingElement: {
@@ -21,7 +29,13 @@ module.exports = function showErrorNotificationTransformer(fileInfo, api) {
   const openingElement = j.jsxOpeningElement(jsxIdentifier);
   openingElement.selfClosing = true;
   const element = j.jsxElement(openingElement);
-  anchor.insertAfter(element);
+
+  const counterPaths = ast.find(j.JSXIdentifier, {
+    name: 'Counter',
+  });
+  if (counterPaths.length === 0) {
+    anchor.insertAfter(element);
+  }
 
   return ast.toSource({ quote: 'single', trailingComma: true });
 };
