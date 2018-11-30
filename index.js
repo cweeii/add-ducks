@@ -39,7 +39,7 @@ const modCode = () => {
   };
 
   mod('App');
-  // mod('index');
+  mod('index');
 };
 
 const prettify = () => {
@@ -83,7 +83,11 @@ const run = async () => {
 
 run()
   .then(() => {
-    console.log('Added redux to create-react-app application!');
+    console.log('');
+    console.log('####################################');
+    console.log('########## Added Redux! ############');
+    console.log('####################################');
+    console.log('');
   })
   .catch(e => {
     console.error(e);

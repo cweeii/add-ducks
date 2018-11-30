@@ -1,4 +1,4 @@
-module.exports = function showErrorNotificationTransformer(fileInfo, api) {
+module.exports = (fileInfo, api) => {
   const j = api.jscodeshift;
   const ast = j(fileInfo.source);
 
